@@ -1,6 +1,12 @@
 require("dotenv").config()
-const express = require("express")
+const { exec } = require("child_process")
+const fs = require("fs")
+const path = require("path")
 
+const DEPLOY_SCRIPT = path.join(__dirname, "..", "deploy.sh")
+const DEPLOY_LOG = path.join(__dirname, "..", "deploy.log")
+
+const express = require("express")
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -35,6 +41,22 @@ app.post("/webhook", (req, res) => {
         console.log(`  - ${commit.message} (${commit.id.substring(0, 7)})`)
       })
     }
+
+    console.log("Running deploy script...")
+    const timestamp = new Date().toISOString()
+    fs.writeFileSync(DEPLOY_LOG, `[${timestamp}]\n`, { flag: "a" })
+
+    exec(`bash ${DEPLOY_SCRIPT} >> ${DEPLOY_LOG} 2>&1`, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Deploy error: ${error.message}`)
+        return
+      }
+      if (stderr) {
+        console.error(`Deploy stderr: ${stderr}`)
+        return
+      }
+      console.log(`Deploy output: ${stdout}`)
+    })
   }
 
   res.json({ status: "received", event })
