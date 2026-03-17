@@ -1,6 +1,6 @@
 ---
 title: personal roadmap
-date: 2026-03-17
+date: 2026-03-18
 ---
 In no particular order, really.
 
