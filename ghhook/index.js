@@ -23,48 +23,20 @@ app.get("/", (req, res) => {
 })
 
 app.post("/webhook", (req, res) => {
-  const signature = req.headers["x-hub-signature-256"]
   const event = req.headers["x-github-event"]
 
-  console.log(`Received event: ${event}`)
-  console.log("Payload:", JSON.stringify(req.body, null, 2))
-
   if (event === "push") {
-    const { ref, commits, pusher, repository } = req.body
-
-    console.log(`Push to ${ref} by ${pusher?.name || "unknown"}`)
-    console.log(`Repository: ${repository?.full_name || "unknown"}`)
-
-    if (commits && commits.length > 0) {
-      console.log(`Commits (${commits.length}):`)
-      commits.forEach((commit) => {
-        console.log(`  - ${commit.message} (${commit.id.substring(0, 7)})`)
-      })
-    }
-
-    console.log("Running deploy script...")
     const timestamp = new Date().toISOString()
-    fs.writeFileSync(DEPLOY_LOG, `[${timestamp}]\n`, { flag: "a" })
+    fs.writeFileSync(DEPLOY_LOG, `[${timestamp}] Running deploy...`)
 
-    const deployCmd = `cd .. && sh ${DEPLOY_SCRIPT} >> ${DEPLOY_LOG} 2>&1`
-    console.log(`Executing: ${deployCmd}`)
-
-    exec(deployCmd, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Deploy error: ${error.message}`)
-        return
-      }
-      if (stderr) {
-        console.error(`Deploy stderr: ${stderr}`)
-        return
-      }
-      console.log(`Deploy output: ${stdout}`)
+    exec(`cd .. && sh ${DEPLOY_SCRIPT}`, (error) => {
+      const status = error ? "failed" : "success"
+      const logEntry = `[${new Date().toISOString()}] ${status}\n`
+      fs.writeFileSync(DEPLOY_LOG, logEntry, { flag: "a" })
     })
   }
 
   res.json({ status: "received", event })
 })
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+app.listen(PORT)
