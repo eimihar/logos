@@ -46,7 +46,7 @@ app.post("/webhook", (req, res) => {
     const timestamp = new Date().toISOString()
     fs.writeFileSync(DEPLOY_LOG, `[${timestamp}]\n`, { flag: "a" })
 
-    const deployCmd = `sh ${DEPLOY_SCRIPT} >> ${DEPLOY_LOG} 2>&1`
+    const deployCmd = `cd .. && sh ${DEPLOY_SCRIPT} >> ${DEPLOY_LOG} 2>&1`
     console.log(`Executing: ${deployCmd}`)
 
     exec(deployCmd, (error, stdout, stderr) => {
