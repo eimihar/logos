@@ -34,3 +34,12 @@ pre {
 pre[data-language]::before {
   color: #75715e; // Monokai comment grey
 }
+
+.recent-notes {
+    & > ul.recent-ul {
+
+        & > li {
+            margin: 0;
+        }
+    }
+}

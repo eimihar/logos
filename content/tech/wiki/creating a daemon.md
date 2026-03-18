@@ -1,5 +1,6 @@
 ---
 title: creating a daemon
+date: 2021-04-25
 ---
 You want to run certain script forever.
 
