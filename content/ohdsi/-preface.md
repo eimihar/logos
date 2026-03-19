@@ -1,5 +1,5 @@
 ---
-title: heads up
+title: preface
 date: 2026-03-18
 ---
 They said that the best way to learn something is to just jump into the raging fire, set yourself alight and see what burns; whether it turns into your passion or your ashes. So, why this topic particularly? me, with no academic background in healthcare or medical whatsoever.
