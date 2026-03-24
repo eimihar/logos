@@ -28,3 +28,5 @@ In no particular order, really.
 - [ ] cohort
 	- [ ] to understand cohort related, building one, how ohdsi/webapi process it
 	- [ ] to understand how clinician handles
+- [ ] prototyping
+	- [ ] simple app to insert synthetic data
