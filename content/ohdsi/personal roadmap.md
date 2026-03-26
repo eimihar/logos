@@ -9,7 +9,7 @@ In no particular order, really.
 - [ ] to study [book of ohdsi](https://ohdsi.github.io/TheBookOfOhdsi/)
 - [ ] setup [ohdsi webapi](https://github.com/OHDSI/WebAPI)
 - [ ] to better understand omop model
-	- [ ] to document omop model
+	- [x] to document omop model
 	- [ ] to setup simple omop model
 	- [ ] to overview design around omop
 	- [ ] to download sample omop data
@@ -21,12 +21,22 @@ In no particular order, really.
 		- [x] to attempt vocabularies download process
 	- [ ] to deploy the vocabulary and to understand the sources (ICD10, SNOMED, RxNorm, LOINC)
 	- [ ] pilot related - to deploy only for select vocabulary
+	- [ ] to understand and list down all vocabularies
 - [ ] to understand achilles - data quality (integrity?)
 - [ ] medical encoding
 	- [ ] EHR integration like hl7, FHIR and library/tooling around it
 	- [ ] omop vocabularies import
+- [ ] to setup ohdsi webapi
+- [ ] sql templates for parameterized query
+    - [ ] to understand [circle-BE](https://github.com/OHDSI/circe-be)
+    - [ ] to understand the [sql templates](https://github.com/OHDSI/CommonDataModel)
 - [ ] cohort
 	- [ ] to understand cohort related, building one, how ohdsi/webapi process it
 	- [ ] to understand how clinician handles
 - [ ] prototyping
 	- [ ] simple app to insert synthetic data
+    	- [ ] to use llm to generate and build synthetic cases
+	- [ ] to build a simple concepts viewer
+    	- [ ] understanding omop viewer
+        	- [ ] concepts viewer
+        	- [ ] llm explained, cache, openrouter wiring
