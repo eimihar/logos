@@ -27,6 +27,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   left: [
     Component.PageTitle(),
+    Component.Explorer(),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
@@ -38,10 +39,8 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.RecentNotes(),
   ],
   right: [
-    Component.Explorer(),
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
