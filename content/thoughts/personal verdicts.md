@@ -1,5 +1,5 @@
 ---
-title: Personal verdicts
+title: personal verdicts
 ---
 a personal verdict of what and how enjoyed myself doing
 
@@ -12,4 +12,5 @@ a personal verdict of what and how enjoyed myself doing
     - dealing with bad hands 3/10
 - to optimize user flow and experience 8/10
 - system optimizations 8/10
+- dealing with layers and layers of processes before i could actually do my work 1/10
 - politics 1/10
