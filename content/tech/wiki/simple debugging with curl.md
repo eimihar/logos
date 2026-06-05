@@ -1,5 +1,5 @@
 ---
-title: simple debugging with curl
+title: simple-debugging-with-curl
 date: 2026-06-05
 ---
 ```
