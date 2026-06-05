@@ -2,6 +2,8 @@
 title: simple debugging with curl
 date: 2026-06-05
 ---
+I just wanna run simple check whether the endpoint is up or not
+
 ```
 curl endpoint -vkI
 ```
